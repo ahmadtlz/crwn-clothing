@@ -5,38 +5,43 @@ import {selectCartItems,selectCartTotal}from '../../redux/cart/cart.selectors'
 
 import CheckoutItem from '../../components/CheckoutItem/CheckoutItem'
 
-import './CheckoutPage.styles.scss'
+import {CheckoutPageContainer,
+        CheckoutHeaderContainer,
+        HeaderBlockContainer,
+        TotalContainer
+}from './CheckoutPage.styles'
+
 
 const CheckoutPage = ({cartItems,total}) => {
   return (
-    <div className="checkout-page">
-      <div className="checkout-header">
-        <div className="header-block">
+    <CheckoutPageContainer >
+      <CheckoutHeaderContainer>
+        <HeaderBlockContainer>
           <span>Product</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlockContainer>
+        <HeaderBlockContainer>
           <span>Description</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlockContainer>
+        <HeaderBlockContainer>
           <span>Quantity</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlockContainer>
+        <HeaderBlockContainer>
           <span>Price</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlockContainer>
+        <HeaderBlockContainer>
           <span>Remove</span>
-        </div>
-      </div>
+        </HeaderBlockContainer>
+      </CheckoutHeaderContainer>
       {cartItems.map(cartItem=>
         <CheckoutItem key={cartItem.id} cartItem ={cartItem}/>
         )
       }
 
-      <div className="total">
-    <span>Total: ${total}</span>
-      </div>
+      <TotalContainer>
+         <span>Total: ${total}</span>
+      </TotalContainer>
      
-    </div>
+    </CheckoutPageContainer>
   )
 }
 

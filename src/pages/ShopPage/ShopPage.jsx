@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom'
 import CollectionsOverview from '../../components/CollectionsOverview/CollectionsOverview'
 import CollectionPage from '../CollectionPage/CollectionPage'
 
-import './ShopPage.styles.scss'
+
 const ShopPage=({match})=> {
 
      return( 

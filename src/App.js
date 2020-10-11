@@ -12,11 +12,14 @@ import {selectCurrentUser} from './redux/user/user.selectors'
 import {auth,createUserProfileDocument} from './firebase/firebase.util';
 import {setCurrentUser} from './redux/user/user.action'
 
+
+
 import './App.css';
 class App extends Component {
   unsubscribeFromAuth=null
   componentDidMount(){
     const {setCurrentUser}=this.props
+
     this.unsubscribeFromAuth=auth.onAuthStateChanged(async userAuth=>{
       if(userAuth){ 
        const userRef=await createUserProfileDocument(userAuth)
@@ -25,10 +28,11 @@ class App extends Component {
             id:snapShot.id,
             ...snapShot.data()
           });
-          
+            
         });
       }else{
         setCurrentUser(userAuth)
+      
       }
     })
   }
@@ -57,7 +61,7 @@ class App extends Component {
 }
 
 const mapStateToProps=createStructuredSelector({
-  currentUser:selectCurrentUser
+  currentUser:selectCurrentUser,
 })
 
 const mapDispatchToProps=dispatch=>({

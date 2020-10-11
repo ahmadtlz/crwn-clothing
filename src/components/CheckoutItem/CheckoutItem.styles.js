@@ -30,14 +30,18 @@ export const TextContainer=styled.span`
 export const  QuantityContainer=styled(TextContainer)`
     
     display: flex;
-
     span{
-      cursor: pointer;
+     cursor:default;
+     
     }
+
     div{
+      cursor: pointer;
+      
       margin: 0 10px;
     }
-`
+    `
+    
 export const RemoveButtonContainer=styled.div`
    padding-left: 12px;
     cursor: pointer;

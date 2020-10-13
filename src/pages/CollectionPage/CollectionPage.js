@@ -10,13 +10,6 @@ import {
 } from './CollectionPage.styles'
 const CollectionPage = ({collection}) => {
   
-  if(collection===null){
-    return(
-      <div>
-       <p>wait</p>
-     </div>
-   )
-  }
   const {title,items}=collection
   return (
     <CollectionPageContainer>

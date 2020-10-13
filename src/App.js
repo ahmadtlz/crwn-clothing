@@ -10,16 +10,12 @@ import Header from './components/Header/Header'
 import {selectCurrentUser} from './redux/user/user.selectors'
 import {checkUserSession}from './redux/user/user.action'
 
-
-
-import './App.css';
+import './App.css'
+;
 const App  =({checkUserSession,currentUser})=> {
   
   useEffect(()=>{
     checkUserSession();
-    // return(
-    //   checkUserSession()
-    // )
   },[checkUserSession])
 
     return(
@@ -29,10 +25,7 @@ const App  =({checkUserSession,currentUser})=> {
           <Route exact path="/" component={Homepage} />
           <Route  path="/shop" component={ShopPage} />
           <Route exact path="/checkout" component={CheckoutPage} />
-          <Route exact path="/signin" render={currentUser?
-             (<Redirect to="/"/>)
-             :
-             (<SignInAndSignUp/>)
+          <Route exact path="/signin" render={()=>currentUser?(<Redirect to="/"/>): (<SignInAndSignUp/>)
           }/>
         </Switch>
       </>
